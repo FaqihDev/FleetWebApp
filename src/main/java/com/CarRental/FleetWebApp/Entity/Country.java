@@ -28,7 +28,7 @@ public class Country {
     private String description;
 
 
-    @Column(name = "natonality")
+    @Column(name = "nationality")
     private String nationality;
 
 
