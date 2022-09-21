@@ -5,9 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/client")
 public class ClientController {
-    @GetMapping("/page")
+    @GetMapping("/client")
     public String getEmployee(){
         return "view/client";
     }

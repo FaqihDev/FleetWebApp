@@ -5,9 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/location")
 public class LocationController {
-    @GetMapping("/page")
+    @GetMapping("/location")
     public String getEmployee(){
         return "view/location";
     }

@@ -6,10 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/vehicleType")
 public class VehicleTypeController {
 
-    @GetMapping("/page")
+    @GetMapping("/vehicleType")
     public String getEmployee(){
         return "view/vehicle/vehicleType";
     }

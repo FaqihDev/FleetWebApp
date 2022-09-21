@@ -5,11 +5,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/user")
 public class UserController {
 
 
-    @GetMapping("/page")
+    @GetMapping("/user")
     public String getEmployee(){
         return "view/user";
     }

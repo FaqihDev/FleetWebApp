@@ -5,10 +5,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/vehicleModel")
 public class VehicleModelController {
 
-    @GetMapping("/page")
+    @GetMapping("/vehicleModel")
     public String getEmployee(){
         return "view/vehicle/vehicleModel";
     }

@@ -5,9 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/supplier")
 public class SupplierController {
-    @GetMapping("/page")
+    @GetMapping("/supplier")
     public String getEmployee(){
         return "view/supplier";
     }
