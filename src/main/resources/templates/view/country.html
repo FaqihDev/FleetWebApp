@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <title>Dashboard - Jamsirat Admin Bootstrap Template</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -30,7 +30,7 @@
   <link href="/assets/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
-  * Template Name: NiceAdmin - v2.4.0
+  * Template Name: Jamsirat Admin - v2.4.0
   * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
@@ -276,7 +276,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " th:href="@{/fleetApp/index}">
+        <a class="nav-link " th:href="@{/index}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -529,7 +529,7 @@
                 <td th:text="${c.continent}" />
                 <td>
                   <a class="btn btn-warning btn-circle" >
-                    <i class="fab fa-facebook-f">Update</i>
+                    <i class="fab fa-facebook-f" data-bs-toggle="modal" data-bs-target="#editModal">Update</i>
                   </a>
                   <a class="btn btn-success btn-circle">
                     <i class="fas fa-check">Detail</i>
@@ -551,7 +551,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>Jamsirat Admin</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
@@ -563,8 +563,6 @@
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-
 
 
   <!-- Add Modals -->
@@ -597,6 +595,7 @@
               <label for="country-Nationality" class="col-form-label">Nationality</label>
               <input type="text" class="form-control" id="country-Nationality" name="nationality">
             </div>
+            <br>
             <div class="form-group" >
               <button type="submit" class="btn btn-primary">Save</button>
             </div>
@@ -615,22 +614,22 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" >
-          <form th:action="@{/country/update}" >
+          <form th:action="@{/country/update}" method="post" >
             <div  class="form-group">
               <label for="edit-code-country" class="col-form-label">Code</label>
-              <input type="text" class="form-control" id="edit-code-country" name="code">
+              <input type="text" class="form-control" id="edit-code-country" name="codeEdit">
             </div>
             <div  class="form-group">
               <label for="edit-capital-country" class="col-form-label">Capital</label>
-              <textarea class="form-control" id="edit-capital-country" name="capital"></textarea>
+              <textarea class="form-control" id="edit-capital-country" name="capitalEdit"></textarea>
             </div>
             <div  class="form-group">
               <label for="edit-desc-country" class="col-form-label">Description</label>
-              <input type="text" class="form-control" id="edit-desc-country" name="description">
+              <input type="text" class="form-control" id="edit-desc-country" name="descriptionEdit">
             </div>
             <div  class="form-group">
               <label for="edit-continent-country" class="col-form-label">Continent</label>
-              <input type="text" class="form-control" id="edit-continent-country" name="continent">
+              <input type="text" class="form-control" id="edit-continent-country" name="continentEdit">
             </div>
             <div  class="form-group">
               <label for="edit-nation-country" class="col-form-label">Nationality</label>
@@ -657,9 +656,14 @@
   <script src="/assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/country.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script th:src="@{/assets/js/main.js}"></script>
+  <script th:src="@{assets/js/country.js"></script>
+  <script th:src="@{/assets/js/jquery.min.js}"></script>
+  <script th:src="@{/assets/js/bootstrap.bundle.min.js}"></script>
+  <script th:src="@{/assets/js/metisMenu.min.js}"></script>
+  <script th:src="@{/assets/js/jquery.slimScroll.js}"></script>
+  <script th:src="@{/assets/js/waves.min.js}"></script>
+  <script th:src="@{/assets/plugins/jquery-sparkline/jquery.sparkline.min.js}"></script>
 
 </body>
 
