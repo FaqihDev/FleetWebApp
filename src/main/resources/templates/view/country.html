@@ -43,7 +43,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a th:href="@{/fleetApp/index}" class="logo d-flex align-items-center">
         <img src="/assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">Jamsirat Admin</span>
       </a>
@@ -276,7 +276,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " th:href="@{/fleetApp/index}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -495,7 +495,7 @@
       <h1>Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a th:href="@{/fleetApp/index}">Home</a></li>
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
@@ -505,24 +505,27 @@
       <div class="row">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">List Of Employee</h5>
+            <h5 class="card-title">List Of Country</h5>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal" data-bs-whatever="@mdo">Add Country</button>
             <table class="table">
               <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Position</th>
-                <th scope="col">Age</th>
-                <th scope="col">Start Date</th>
+                <th scope="col">Id</th>
+                <th scope="col">Code</th>
+                <th scope="col">Capital</th>
+                <th scope="col">Description</th>
+                <th scope="col">nationality</th>
+                <th scope="col">continent</th>
               </tr>
               </thead>
               <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Faqih Abdul Rachman</td>
-                <td>Web Developer</td>
-                <td>28</td>
-                <td>2016-05-25</td>
+              <tr th:each="c:${countries}">
+                <td th:text="${c.id}" />
+                <td th:text="${c.code}" />
+                <td th:text="${c.capital}" />
+                <td th:text="${c.description}" />
+                <td th:text="${c.nationality}" />
+                <td th:text="${c.continent}" />
               </tr>
               </tbody>
             </table>
@@ -548,6 +551,49 @@
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+
+
+  <!-- Add Modals -->
+  <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add New Country</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" >
+          <form th:action="@{/country/addCountry}" method="post">
+            <div  class="form-group">
+              <label for="country-code" class="col-form-label">Code</label>
+              <input type="text" class="form-control" id="country-code" name="code">
+            </div>
+            <div  class="form-group">
+              <label for="country-capital" class="col-form-label">Capital</label>
+              <textarea class="form-control" id="country-capital" name="capital"></textarea>
+            </div>
+            <div  class="form-group">
+              <label for="country-description" class="col-form-label">Description</label>
+              <input type="text" class="form-control" id="country-description" name="description">
+            </div>
+            <div  class="form-group">
+              <label for="country-continent" class="col-form-label">Continent</label>
+              <input type="text" class="form-control" id="country-continent" name="continent">
+            </div>
+            <div  class="form-group">
+              <label for="country-Nationality" class="col-form-label">Nationality</label>
+              <input type="text" class="form-control" id="country-Nationality" name="nationality">
+            </div>
+            <div class="form-group" >
+              <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Vendor JS Files -->
   <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
