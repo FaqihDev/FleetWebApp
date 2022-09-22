@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 import java.util.List;
@@ -28,6 +30,13 @@ public class CountryController {
     @PostMapping("/country/addCountry")
     public String addCountry(Model model, Country country){
         countryService.addCountry(country);
+        model.addAttribute("country",country);
+        return "redirect:/country";
+    }
+
+    @GetMapping("/country/update")
+    public String updateCountry(@RequestParam("countryId") int id, Model model){
+        Country country = countryService.getCountry(id);
         model.addAttribute("country",country);
         return "redirect:/country";
     }

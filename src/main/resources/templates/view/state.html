@@ -43,7 +43,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <ath:href="@{/fleetApp/index}" class="logo d-flex align-items-center">
+      <a th:href="@{/fleetApp/index}" class="logo d-flex align-items-center">
         <img src="/assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">Jamsirat Admin</span>
       </a>
@@ -344,27 +344,27 @@
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a th:href="@{/state}">
+            <a th:href="@{/employee}">
               <i class="bi bi-circle"></i><span>Employee</span>
             </a>
           </li>
           <li>
-            <a th:href="@{/country}">
+            <a th:href="@{/client}">
               <i class="bi bi-circle"></i><span>Clients</span>
             </a>
           </li>
           <li>
-            <a th:href="@{/country}">
+            <a th:href="@{/supplier}">
               <i class="bi bi-circle"></i><span>Supplier</span>
             </a>
           </li>
           <li>
-            <a th:href="@{/country}">
+            <a th:href="@{/contact}">
               <i class="bi bi-circle"></i><span>Contacts</span>
             </a>
           </li>
           <li>
-            <a th:href="@{/country}">
+            <a th:href="@{/user}">
               <i class="bi bi-circle"></i><span>Users</span>
             </a>
           </li>
@@ -495,7 +495,8 @@
       <h1>Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><ath:href="@{/fleetApp/index}">Home</a></li>
+          <li class="breadcrumb-item">
+            <a th:href="@{/fleetApp/index}">Home</a></li>
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
