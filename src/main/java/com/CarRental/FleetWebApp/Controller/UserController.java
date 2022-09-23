@@ -13,4 +13,9 @@ public class UserController {
         return "view/user";
     }
 
+    @GetMapping("/user/addNew")
+    public String register(){
+        return "view/register";
+    }
+
 }

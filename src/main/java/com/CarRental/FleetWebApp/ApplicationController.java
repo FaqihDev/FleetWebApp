@@ -9,7 +9,7 @@ public class ApplicationController {
 
     @GetMapping("/index")
     public String home(){
-        return "view/dashboard";
+        return "index";
     }
 
     @GetMapping("/profile")
@@ -25,6 +25,11 @@ public class ApplicationController {
     @GetMapping("/logout")
     public String logout(){
         return "view/login";
+    }
+
+    @GetMapping("/register")
+    public String register(){
+        return "view/register";
     }
 
 }

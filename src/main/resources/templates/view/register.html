@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Pages / Login - NiceAdmin Bootstrap Template</title>
+  <title>Pages / Register Jamsirat Account</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -50,7 +50,7 @@
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
                   <img src="/assets/img/logo.png" alt="">
-                  <span class="d-none d-lg-block">Jamsirat Admin</span>
+                  <span class="d-none d-lg-block">Jamsirat</span>
                 </a>
               </div><!-- End Logo -->
 
@@ -59,38 +59,60 @@
                 <div class="card-body">
 
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
-                    <p class="text-center small">Enter your username & password to login</p>
+                    <h5 class="card-title text-center pb-0 fs-4">Create an Account</h5>
+                    <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="login-form" th:action="@{/login}" method="post" >
+                  <form class="row g-3 needs-validation" th:action="@{/register}" method="post">
+                    <div class="col-12">
+                      <label for="firstName" class="form-label">First Name</label>
+                      <input type="text" name="firstName" class="form-control" id="firstName" required>
+                      <div class="invalid-feedback">Please, enter your name!</div>
+                    </div>
+                    <div class="col-12">
+                      <label for="lastName" class="form-label"> Last Name</label>
+                      <input type="text" name="lastName" class="form-control" id="lastName" required>
+                      <div class="invalid-feedback">Please, enter your name!</div>
+                    </div>
+                    <div class="col-12">
+                      <label for="yourEmail" class="form-label">Your Email</label>
+                      <input type="email" name="email" class="form-control" id="yourEmail" required>
+                      <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+                    </div>
 
                     <div class="col-12">
                       <label for="yourUsername" class="form-label">Username</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="username" class="form-control" id="yourUsername"  required>
-                        <div class="invalid-feedback">Please enter your username.</div>
+                        <input type="text" name="username" class="form-control" id="yourUsername" required>
+                        <div class="invalid-feedback">Please choose a username.</div>
                       </div>
                     </div>
 
                     <div class="col-12">
-                      <label for="yourPassword" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="yourPassword"  required>
+                      <label for="password" class="form-label">Password</label>
+                      <input type="password" name="password" class="form-control" id="password" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
                     <div class="col-12">
+                      <label for="confirmPassword" class="form-label">Confirm Password</label>
+                      <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" required>
+                      <div class="invalid-feedback">Please confirm password once!</div>
+                    </div>
+
+                    <div class="col-12">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                        <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
+                        <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
+                        <div class="invalid-feedback">You must agree before submitting.</div>
                       </div>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit">Login</button>
+                      <button class="btn btn-primary w-100" type="submit">Create Account</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">Don't have account? <a th:href="@{/user/addNew}">Create an account</a></p>
+                      <p class="small mb-0">Already have an account? <a th:href="@{/login}">Log in</a></p>
                     </div>
                   </form>
 
@@ -119,6 +141,8 @@
   <!-- Vendor JS Files -->
   <script src="/assets/vendor/apexcharts/apexcharts.min.js"></script>
   <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
   <script src="/assets/vendor/chart.js/chart.min.js"></script>
   <script src="/assets/vendor/echarts/echarts.min.js"></script>
   <script src="/assets/vendor/quill/quill.min.js"></script>
@@ -128,6 +152,15 @@
 
   <!-- Template Main JS File -->
   <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/register.js"></script>
+  <script src="/assets/js/jquery.js"></script>
+
+  <!-- Template Main JS File -->
+  <script th:src="@{/assets/js/main.js}"></script>
+  <script th:src="@{/assets/js/metisMenu.min.js}"></script>
+  <script th:src="@{/assets/js/jquery.slimScroll.js}"></script>
+  <script th:src="@{/assets/js/waves.min.js}"></script>
+  <script th:src="@{/assets/plugins/jquery-sparkline/jquery.sparkline.min.js}"></script>
 
 </body>
 
