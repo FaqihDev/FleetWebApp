@@ -3,9 +3,20 @@
  */
 
  $('document').ready(function(){
-
     $('table #editButton').on('click',function(event){
-        $('#editModal').modal();
+       event.preventDefault();
+
+       var href = $(this).attr('href');
+
+       $.get(href,function(country,status){
+            $('#editId').val(country.id);
+            $('#editCode').val(country.code);
+            $('#editCapital').val(country.capital);
+            $('#editDescription').val(country.description);
+            $('#editContinent').val(country.continent);
+            $('#editNationality').val(country.nationality);
+       });
+       $('#editModal').modal();
     });
 
  });

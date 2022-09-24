@@ -9,7 +9,7 @@ import java.util.Optional;
 
 
 @Service
-public class CountryService {
+public class  CountryService {
 
     @Autowired
     private CountryRepository countryRepository;
@@ -27,16 +27,8 @@ public class CountryService {
         countryRepository.save(country);
     }
 
-    public Country getCountry (Integer id){
-        Optional<Country> result = countryRepository.findById(id);
-        Country country = null;
-
-        if (result.isPresent()){
-            country = result.get();
-        } else {
-            throw new RuntimeException("Did not find employee id - " + id);
-        }
-        return country;
+    public Optional<Country> getCountry (Integer id){
+        return countryRepository.findById(id);
     }
 
 

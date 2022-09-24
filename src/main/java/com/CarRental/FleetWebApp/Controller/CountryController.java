@@ -5,13 +5,11 @@ import com.CarRental.FleetWebApp.Service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class CountryController {
@@ -34,11 +32,11 @@ public class CountryController {
         return "redirect:/country";
     }
 
-    @GetMapping("/country/update")
-    public String updateCountry(@RequestParam("countryId") int id, Model model){
-        Country country = countryService.getCountry(id);
-        model.addAttribute("country",country);
-        return "redirect:/country";
+    @RequestMapping("/country/update")
+    @ResponseBody
+    public Optional<Country> update(int id,Model model){
+        model.addAttribute("id",id);
+        return countryService.getCountry(id);
     }
 
 }
